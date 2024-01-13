@@ -1,11 +1,4 @@
-# set config.nu like follwing below
-# ```nu
-# # config.nu
-# 
-# use activate-venv.nu *
-# ```
-
-export def write-activate [venv_dir: string = venv] {
+export def main [venv_dir: string = venv] {
     let venv_path = pwd | path join $venv_dir
     let bin_path = $venv_path | path join (bin-dir)
     let activate_path = $bin_path | path join activate.nu
@@ -16,8 +9,6 @@ export def write-activate [venv_dir: string = venv] {
     | str replace -a __VIRTUAL_PROMPT__ $venv_dir
     | save -f $activate_path
 }
-
-export alias activate = overlay use ([venv Scripts activate.nu] | path join)
 
 def bin-dir [] {
     if (is-windows) {
