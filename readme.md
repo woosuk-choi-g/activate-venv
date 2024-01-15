@@ -32,7 +32,6 @@ This will create a file called `activate.nu` in the current directory. You can t
 ```nu
 activate
 ```
-```
 If you want to deactivate the virtual environment, you can run the following command
 ```nu
 deactivate
